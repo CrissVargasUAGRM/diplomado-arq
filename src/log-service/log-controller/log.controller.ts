@@ -25,7 +25,7 @@ export class LogController {
         return this.userService.register(request);
     }
 
-    @Post('/method-encrypt')
+    @Post('/method-encrypt-and-logger')
     thirdEncryption(@Body() request: MethodRequest){
         return this.mainService.mainMethodLogEncrypt(request);
     }

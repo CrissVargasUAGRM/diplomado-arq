@@ -2,7 +2,7 @@ import { HttpStatus, Injectable, InternalServerErrorException, NotFoundException
 import { User } from '../entity/user.entity';
 import { MethodRequest } from '../dto/MethodEncrypt.dto';
 import { UserService } from './user/user.service';
-import { LogsService } from './logs/logs.service';
+import { LogsService } from './logs-services/logs.service';
 import { EncryptsService } from './encrypts/encrypts.service';
 
 @Injectable()
@@ -37,6 +37,9 @@ export class MainService {
             }
             if(request.typeLog === 'LOG'){
                 this.logsService.saveLogFileConsole(passwordEncrypt);
+            }
+            if(request.typeLog === 'ENDPOINT'){
+                this.logsService.saveLogEndPoint(passwordEncrypt);
             }
 
             return HttpStatus.OK;
